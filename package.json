@@ -1,25 +1,72 @@
 {
   "name": "proxy",
-  "version": "0.0.0",
+  "version": "1.5.0",
   "private": true,
-  "scripts": {
-    "start": "node ./bin/www",
-    "dev": "nodemon ./bin/www"
+  "description": "Node.js package to bypass WAF anti-bot JavaScript challenges",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/TanNhatCMS/NodeJS-Proxy"
   },
+  "main": "./bin/www",
+  "scripts": {
+    "pm2": "pm2",
+    "pm2:prod": "pm2 start ecosystem.config.js --env production",
+    "pm2:dev": "pm2 start ecosystem.config.js --env development",
+    "stop": "pm2 stop ecosystem.config.js",
+    "delete": "pm2 delete ecosystem.config.js",
+    "monitor": "pm2 monit",
+    "reload-env": "pm2 reload --update-env ecosystem.config.js",
+    "start": "node ./bin/www",
+    "dev": "nodemon ./bin/www",
+    "lint": "eslint ./bin/www app.js src/*.js",
+    "test": "jest tests",
+    "coverage": "jest --collectCoverageFrom=tests/**.js --coverage src"
+  },
+  "keywords": [
+    "bot",
+    "WAF",
+    "bypass",
+    "cloudflare",
+    "anti-bot",
+    "scrape",
+    "scraping",
+    "protected-pages",
+    "captcha"
+  ],
+  "author": "TanNhatCMS",
+  "homepage": "https://github.com/TanNhatCMS/NodeJS-Proxy",
+  "license": "MIT",
   "dependencies": {
+    "axios": "^1.7.2",
     "bluebird": "^3.7.2",
     "body-parser": "^1.20.2",
+    "cheerio": "1.0.0-rc.12",
     "cookie-parser": "~1.4.6",
+    "cors": "^2.8.5",
     "debug": "~2.6.9",
-    "ejs": "~3.1.0",
-    "express": "~4.19.0",
+    "ejs": "~3.1.10",
+    "express": "~4.19.2",
     "extend": "^3.0.2",
     "http-errors": "~1.6.3",
+    "iltorb": "^2.4.5",
     "morgan": "~1.10.0",
+    "playwright": "^1.45.1",
     "prettyjson": "^1.2.5",
-    "request-promise": "^4.2.6"
+    "request": "^2.88.2",
+    "request-promise": "^4.2.6",
+    "request-promise-native": "^1.0.9",
+    "safe-eval": "^0.4.1",
+    "url-parse": "^1.5.10"
   },
   "devDependencies": {
-    "nodemon": "^3.1.4"
+    "eslint": "^5.16.0",
+    "eslint-config-standard": "^12.0.0",
+    "eslint-plugin-jest": "^21.27.2",
+    "jest": "^23.6.0",
+    "nodemon": "^3.1.4",
+    "pm2": "^5.4.1"
+  },
+  "engines": {
+    "pnpm": "9.x"
   }
 }
