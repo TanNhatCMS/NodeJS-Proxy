@@ -50,7 +50,7 @@
     "extend": "^3.0.2",
     "http-errors": "~2.0.0",
     "iltorb": "^2.4.5",
-    "morgan": "~1.10.0",
+    "morgan": "~1.11.0",
     "playwright": "^1.45.1",
     "prettyjson": "^1.2.5",
     "request": "^2.88.2",
